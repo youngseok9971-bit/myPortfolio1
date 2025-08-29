@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1> &#x1F60E; 이용석 Web</h1>
+        </div>
+        <div class="nav">
+            <ul class="menu">
+                <li><a href="../index.html"> &#x1F3E0; 홈</a></li>
+                <li><a href="login.html"> &#x1F513; 로그인</a></li>
+                <li><a href="join.html"> &#x1F464; 회원가입</a></li>
+                <li><a href="profile.html"> &#x1F9D1; 프로필</a></li>
+                <li><a href="portfolio.html"> &#x1F9D1;&#x200D;&#x1F4BB; 포트폴리오</a></li>
+                <li><a href="board.html"> &#x1F4DD; 자유게시판</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="aside"></div>
+            <div class="contents">
+                <div>
+                    <h2 class="title">회원가입</h2><br>
+                </div>
+                <form name="test" action="#" method="post">
+                    <fieldset>
+                        <div class="signup">
+                            <label for="id">아이디</label>
+                            <input type="text" id="id" name="id" placeholder="아이디 입력"><br><br>
+                            <label for="password">비밀번호</label>
+                            <input type="password" id="password" name="password" placeholder="비밀번호 입력"><br><br>
+                            <label for="email">이메일</label>
+                            <input type="text" id="email" name="email" placeholder="이메일 입력"><br><br>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="signup">
+                            <label for="name">성명</label> 
+                            <input type="text" id="name" placeholder="성명 입력"><br><br>
+                            <label for="birth">생년월일</label>
+                            <input type="date" id="birth" placeholder="생년월일 입력"><br><br>
+                            <label for="phone">전화번호</label>
+                            <input type="number" id="phone" placeholder="전화번호 입력">
+                        </div>
+                    </fieldset>
+                    <div class="button">
+                        <button class="signup-button" type="submit">회원가입</button>
+                    </div>
+                    <script>
+                        const btnEl = document.querySelector(".signup-button");
+                        btnEl.addEventListener("click", function(event)  {
+                            event.preventDefault(); // 폼 전송 막기
+
+                            const userid = document.querySelector("#id");
+                            const pwd = document.querySelector("#password");
+                            const email = document.querySelector("#email");
+                            const name = document.querySelector("#name");
+                            const birth = document.querySelector("#birth");
+                            const phone = document.querySelector("#phone");
+
+                            // 아이디 입력확인
+                            if(userid.value == ""){
+                                alert("아이디를 입력해주세요.");
+                                userid.focus();
+                                return;
+                            }
+
+                            // 비밀번호 입력확인
+                            if(pwd.value == ""){
+                                alert("비밀번호를 입력해주세요.");
+                                pwd.focus();
+                                return;
+                            }
+
+                            // 비밀번호 특수문자 입력확인
+                            if(checkSp(pwd.value) < 1){
+                                alert("비밀번호에는 반드시 특수문자가 포함되어야 합니다");
+                                pwd.focus();
+                                return;
+                            }
+
+                            // 이메일 입력확인
+                            if(email.value.indexOf("@") == -1){
+                                alert("이메일을 형식에 맞게끔 입력해주세요.");
+                                email.focus();
+                                return;
+                            }
+
+                            // 이름 입력확인
+                            if(name.value == ""){
+                                alert("성명을 입력해주세요.");
+                                name.focus();
+                                return;
+                            }
+
+                            // 생년월일 입력확인
+                            if(birth.value == ""){
+                                alert("생년월일을 입력해주세요.");
+                                return;
+                            }
+
+                            // 전화번호 입력확인
+                            if(phone.value == ""){
+                                alert("전화번호를 입력해주세요.");
+                                phone.focus();
+                                return;
+                            }
+                        });
+
+                        // 특수문자 확인 함수
+                        function checkSp(pwd) {
+                            let spchar = ['!', '@', '#', '$', '%', '^', '&', '*', '+', '-', '/'];
+                            let cnt = 0; 
+                            for(let i = 0; i < pwd.length; i++) {
+                                for(let j = 0; j < spchar.length; j++) {
+                                    if(pwd.charAt(i) == spchar[j]) {
+                                    cnt++;
+                                    break;
+                                    }
+                                }
+                            }
+                            return cnt;
+                        }
+                    </script>
+                </form>
+            </div>
+            <div class="aside"></div>
+        </div> 
+        <div class="footer">
+            <p>Copyright&copy;이용석 웹 페이지</p>            
+        </div>       
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>홈</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h1> &#x1F60E; 이용석 Web</h1>
+        </div>
+        <div class="nav">
+            <ul class="menu">
+                <li><a href="index.html"> &#x1F3E0; 홈</a></li>
+                <li><a href="html/login.html"> &#x1F513; 로그인</a></li>
+                <li><a href="html/join.html"> &#x1F464; 회원가입</a></li>
+                <li><a href="html/profile.html"> &#x1F9D1; 프로필</a></li>
+                <li><a href="html/portfolio.html"> &#x1F9D1;&#x200D;&#x1F4BB; 포트폴리오</a></li>
+                <li><a href="html/board.html"> &#x1F4DD; 자유게시판</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="aside-left"></div>
+            <div class="contents">
+                <div>
+                    <h2 class="title">홈 메뉴</h2>
+                </div>
+                <div>
+                    <ul class="index-home">
+                        <li><a href="html/login.html"> &#x1F513; 로그인</a></li>
+                        <li><a href="html/join.html"> &#x1F464; 회원가입</a></li>
+                        <li><a href="html/profile.html"> &#x1F9D1; 프로필</a></li>
+                        <li><a href="html/portfolio.html"> &#x1F9D1;&#x200D;&#x1F4BB; 포트폴리오</a></li>
+                        <li><a href="html/board.html"> &#x1F4DD; 자유게시판</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aside-right">
+                <h3>오늘 할일</h3>
+                <div id="todolist">
+                    <input type="text" id="taskInput" placeholder="할일을 입력하세요." onkeydown="inputKey(event)">
+                    <input type="button" id="addTask" value="추가" onclick="addTask()">
+                    <input type="button" id="addTask" value="삭제" onclick="delTask()">
+                    <table>
+                        <tr>
+                            <th id="h-num">번호</th>
+                            <th id="h-todo">할일</th>
+                            <th id="h-check"><input type="checkbox" onclick="allCheck(this)"></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright&copy;이용석 웹 페이지</p>    
+        </div>
+        <script src="js/script.js"></script> 
+    </body>
+</html>
